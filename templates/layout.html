@@ -4,22 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>
         {% block title %}
             Django App
-        {% endblock %} 
+        {% endblock %}
     </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}" defer></script>
 </head>
 <body>
     <nav>
-        <a href="/">Home🏠|</a>
-        <a href="/about">About🤔|</a>
-        <a href="/posts">Posts📄</a>
+        <a href="/">
+            <span role="img" aria-label="Home">🏠</span>
+        </a> | 
+        <a href="/about">
+            <span role="img" aria-label="About">😀</span>
+        </a> | 
+        <a href="{% url 'posts:list' %}">
+            <span role="img" aria-label="Posts">📰</span>
+
+            </a>
     </nav>
     <main>
         {% block content %}
-        {% endblock  %}
+        {% endblock %}
     </main>
 </body>
 </html>
